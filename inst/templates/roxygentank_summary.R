@@ -1,0 +1,133 @@
+#' Informative one sentence title.
+#'
+#' A brief one paragraph description that will go at the top of the docs
+#' for the given function. Note that roxygen2 uses latex-style format
+#' tags - see below in the details section for more details. An explicit
+#' "@description" tag is optional, but not recommended. All objects must
+#' have a title and description, details are optional.
+#'
+#' Any additional paragraphs will now go into a "details"
+#' section. These are shown right after the arguments/value portions.
+#'
+#' @section Section example:
+#' The "@section" tag creates named sections with the provided title.
+#' Note the colon ":" after the section title.
+#'
+#' @section Minimal roxygen tags:
+#' The following are necessary at minimum:
+#'
+#' * @title and @description (no explicit tag necessary for these)
+#' * @param <param name> <description> for each parameter
+#' * @export if the function should be available to user
+#' * @return describing what the user should expect
+#' * @examples with executable code
+#' * @family, or @name and @rdname recommended for families of functions
+#'   with similar/overlapping documentation and use cases
+#'
+#' @section Inline formatting:
+#' First, note that multiple sections may be added in sequence. Next,
+#' we show some extra roxygen2 formatting abilities.
+#'
+#' * bullets can be created with multiple lines prepended with asterisks
+#' * function references can be wrapped with square-brackets,
+#'   e.g. [dplyr::filter_all()]
+#' * note that functions within your package do not require the namespace
+#'   specification, but external references do
+#' * code without references symbols uses ticks, e.g. [`==`], [`>`], [`&`]
+#'
+#' @section Rd formatting tags:
+#' Rd formatting tags can be used for more control over formatting of text.
+#' These use a backslash plus tag combination, wrapping formatted text
+#' with curly brackets. These .Rd formatting tags include:
+#'
+#' * \emph{italics}, \strong{bold}, \code{code} (explicit alternative to
+#'   square brackets and/or ticks)
+#' * "\url{url}", "\href{url}{display}", "\email{name@@foo.com}",
+#'   "\link[=dest]{display}"
+#' * "\pkg{package}", "\code{\link{function}}",
+#'   "\code{\link[package]{function}}"
+#' * "\eqn{a + b (inline)}", "\deqn{a + b (block)}"
+#'
+#' @section Navigation tags:
+#' These special roxygen tags are of note for their documentation
+#' enhancements or necessity. They are:
+#'
+#' * @seealso <freetext> points to other useful resources, either on the web, e.g.
+#'   \url{http://www.r-project.org}, or other documentation, e.g.
+#'   \code{\link{functioname}}
+#' * @family <family name> for a family of related function, the @family <family>
+#'   tag automatically adds appropriate lists and interlinks to the @seealso
+#'   section. Should be plural. The @family tag can be repeated to make a
+#'   function a part of multiple families, each with separate headings in the
+#'   seealso section.
+#' * @aliases <alias1> <alias2> <alias etc> for additional aliases, which users
+#'   can find with `?`
+#' * @concept adds extra keywords that can be found with help.search()
+#' * @source can be used for documenting data with a special section describing
+#'   its original source, such as a URL or paragraph description thereof
+#'
+#' @section Inheriting documentation:
+#' Docs can be inherited via special roxygen tags:
+#'
+#' * @inherit <source_function> will inherit parameters, return, references,
+#'   description, details, and seealso from a `source_function()`
+#' * @inherit <source_function> <part> <part2> will inherit selected
+#'   parts, e.g. "return", "details", "seealso"
+#' * @inheritSection <source_function> <Section title> will inherit the
+#'   section with given "Section title"
+#' * You can also inherit a documentation from another package via
+#'   the formatting the argument with its package, <pkg::source_function>
+#' * All of these function recursively
+#'
+#' @section Multiple functions in the same file:
+#' This is best for when all functions have the same or very similar arguments.
+#'
+#' * @describeIn <source_function> <text> is designed for methods dispatch
+#' * @rdname <source_function> can be used to add documentation to an existing
+#'   function
+#' * @name <name> can be used in a dummy documentation of `NULL`, which can
+#'   then be referred to with @rdname <name> in the actual functions
+#'
+#' @note
+#' An additional section with the header "Note", for special things of note.
+#'
+#' @source
+#' Describes sources that are relevant to the function, such as publications
+#' or online resources. For example, this template was mainly inspired by the
+#' \href{http://r-pkgs.had.co.nz/man.html#man-functions}{R packages book by Hadley Wickham}
+#' and a post on CRAN about \href{Generating Rd files}{https://cran.r-project.org/web/packages/roxygen2/vignettes/rd.html}
+#'
+#' @param x first string is the variable name, subsequent text is the
+#'   parameter description, ending with a full stop.
+#' @param y more parameters, recommended to show any default values
+#'   as (default: [`NULL`]).
+#'
+#' @return textual description of the return, e.g. an object of the same
+#'   class as `.data`.
+#'
+#' @family roxygentank example
+#' @seealso text with references to related functions, e.g. [dplyr::filter()]
+#' @name name
+#'
+#' @examples
+#' x <- "hello world"
+#'
+#' # Code in this block is not run
+#' \dontrun{
+#' y <- "I'm not run"
+#' }
+#'
+#' # Code in this block is not tested
+#' \donttest{
+#' z <- "I'm untested"
+#' }
+#'
+#' # Code is invisible, but still run
+#' \dontshow{
+#' w <- "I'm hiding, but I exist"
+#' }
+#'
+#' @export
+your_function <- function(x, y = NULL, z = c(1, 2)) {
+    "hello world"
+}
